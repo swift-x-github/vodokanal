@@ -1,0 +1,54 @@
+       <!-- start login section -->
+        <section class="login">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 center-col">
+                        <div class="common-form">
+                            <h3>Реєстрація у особистому кабінеті </h3>
+                            <div class="row">
+                                                        
+                            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                              <%= render "devise/shared/error_messages", resource: resource %>
+
+                              <div class="col-md-12 margin-15px-bottom">
+                                <%= f.label :email %><br />
+                                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                              </div>
+
+                               <div class="col-md-12 margin-15px-bottom">
+                                <%= f.label :password %>
+                                <% if @minimum_password_length %>
+                                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                                <% end %><br />
+                                <%= f.password_field :password, autocomplete: "new-password" %>
+                              </div>
+
+                               <div class="col-md-12 margin-15px-bottom">
+                                <%= f.label :password_confirmation %><br />
+                                <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+                              </div>
+
+                               <div class="col-12">
+                                <%= f.submit "Sign up" %>
+                              </div>
+                            <% end %>
+                            <div class="col-12">
+                            <%= render "devise/shared/links" %>
+                            </div>     
+                             </div>
+                              
+                                   
+                          
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- end login section -->
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+
+        <!-- start login section -->
+        <section class="login">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 center-col">
+                        <div class="common-form">
+                            <h3>Введіть номер особистого рахунку і ICV номер </h3>
+                            <div class="row">
+                                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                                 <div class="col-md-12 margin-15px-bottom">
+                                  <%= f.label :email %><br />
+                                  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                                </div>
+
+                                <div class="col-md-12 margin-15px-bottom">
+                                  <%= f.label :password %><br />
+                                  <%= f.password_field :password, autocomplete: "current-password" %>
+                                </div>
+
+                                <% if devise_mapping.rememberable? %>
+                                   <div class="col-md-12 margin-15px-bottom">
+                                    <%= f.check_box :remember_me %>
+                                    <%= f.label :remember_me, class: 'min-height-auto' %>
+                                  </div>
+                                <% end %>
+
+                               <div class="col-12">
+                                  <%= f.submit "Вхід до особистого кабінету", class: 'butn theme medium' %>
+                                </div>
+                              <% end %>
+                              
+                              <div class="col-12">
+                              <%= render "devise/shared/links", class: 'butn theme medium' %> 
+                              </div>     
+                             </div>
+                              
+                                   
+                          
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- end login section -->
+
+
+
+
+
+
