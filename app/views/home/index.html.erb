@@ -1,36 +1,21 @@
- <section class="page-title-section bg-img cover-background" data-overlay-dark="75" data-background="img/banner/page-title.jpg">
-            <div class="container">
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1>Вітаємо на сайті КП "Білгород-Дністровсьководоканал"</h1>
-                    </div>
-                    <div class="col-md-12">
-                        <ul>
-                            <li><a href="/">Головна</a></li>
-                           
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </section>
         <!-- end page title section -->
-        
+            <main class="container">
+            <div class="bg-light p-5 rounded">
+                 <h1>Вітаємо на сайті КП "Білгород-Дністровськ водоканал"</h1>
+                <p class="lead">Скористайтеся перевагою особистого кабінету</p>
+                 <p class="width-40 md-width-60 sm-width-80 xs-width-95 center-col"> Відтепер ви маєте можливість передавати показники приладів обліку online </p>
+                 <%= link_to 'Увійти до особистого кабінету', new_account_session_path, class: 'btn btn-lg btn-primary' %> 
+            </div>
+            </main>
         
 
         <!-- start service section -->
         <section>
             <div class="container lg-container">
-
-                <div class="section-title text-center margin-60px-bottom md-margin-50px-bottom xs-margin-30px-bottom wow fadeInDown" data-wow-delay=".2s">
-                    <h3 class="font-weight-700 margin-10px-bottom"> Скористайтеся перевагою особистого кабінету</h3>
-                    <p class="width-40 md-width-60 sm-width-80 xs-width-95 center-col"> Відтепер ви маєте можливість передавати показники приладів обліку online </p>
-                </div>
-
                 <div class="row align-items-center margin-50px-bottom">
                     <div class="col-lg-6 col-md-12 sm-margin-30px-bottom text-center wow fadeInLeft" data-wow-delay=".1s">
-                        <img src="img/content/about5-01.png" alt="" />
+                       <%= image_tag ("img/content/about5-01.png")%> 
                     </div>
                     <div class="col-lg-6 col-md-12 wow fadeInRight" data-wow-delay=".1s">
 
@@ -66,12 +51,12 @@
 
                     </div>
                     <div class="col-lg-6 col-md-12 text-center sm-margin-30px-bottom order-1 order-lg-2 wow fadeInRight" data-wow-delay=".1s">
-                        <img src="img/content/about5-02.png" alt="" />
+                        <%= image_tag ("img/content/about5-02.png")%> 
                     </div>
                 </div>
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-12 sm-margin-30px-bottom wow fadeInLeft text-center" data-wow-delay=".1s">
-                        <img src="img/content/about5-03.png" alt="" />
+                         <%= image_tag ("img/content/about5-03.png")%> 
                     </div>
                     <div class="col-lg-6 col-md-12 wow fadeInRight" data-wow-delay=".1s">
 
@@ -96,24 +81,3 @@
         </section>
         <!-- end service section -->
 
-  
-
-
-        <!-- start extra section -->
-        <section class="no-padding-tb sm-text-center wow fadeInUp position-relative z-index-9 bg-transparent" data-wow-delay=".2s">
-            <div class="container lg-container">
-                <div class="parallax cover-background padding-90px-all md-padding-70px-all sm-padding-50px-all xs-padding-50px-tb xs-padding-30px-lr wow fadeInUp theme-overlay-90 border-radius-4" data-overlay-dark="9" data-background="img/content/footer-bg-01.jpg">
-                    <div class="position-relative z-index-1">
-                        <h4 class="text-white no-margin-bottom xs-margin-20px-bottom display-inline-block vertical-align-middle">Готові почати?</h4>
-                            <%= link_to 'Sign In', new_account_session_path, class: 'butn style-two float-right sm-float-none margin-30px-left xs-no-margin' %> 
-                            
-                        </a>
-                        
-                        
-
-
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end extra section -->
