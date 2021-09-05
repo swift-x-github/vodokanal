@@ -6,6 +6,10 @@
                 <p id="notice"><%= notice %></p>
                 <h2> Информация о водомере </h2>
                 <p>
+                  <strong>Название водомера :</strong>
+                  <%= @watermeter.wm_name %>
+                </p>
+                <p>
                   <strong>Модель водомера :</strong>
                   <%= @watermeter.wm_model %>
                 </p>
@@ -18,6 +22,10 @@
                 <p>
                   <strong>Диаметр:</strong>
                   <%= @watermeter.wm_diameter %>
+                </p>
+                 <p>
+                  <strong>Тип воды:</strong>
+                  <%= @watermeter.wm_water_type %>
                 </p>
 
                 <p>
@@ -54,6 +62,17 @@
                   <strong>тип пломбы:</strong>
                   <%= @watermeter.wm_plomba_type %>
                 </p>
+
+                <p>
+                  <strong>номер пломбы:</strong>
+                  <%= @watermeter.wm_plomba_num %>
+                </p>
+
+                <p>
+                  <strong>дата установки пломбы:</strong>
+                  <%= @watermeter.wm_plomba_date %>
+                </p>
+
 
                 <p>
                   <strong>интервал поверки:</strong>
