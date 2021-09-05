@@ -1,0 +1,5 @@
+ua:
+  global:
+    forms:
+      label:
+        wm_model: "Модель"

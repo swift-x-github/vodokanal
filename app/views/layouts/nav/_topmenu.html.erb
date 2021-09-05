@@ -6,20 +6,20 @@
     </button>
     <div class="navbar-collapse collapse" id="navbarCollapse" style="">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            
         <li class="nav-item">
         <%= link_to 'Главная', root_path, class: 'nav-link active' %>
         </li>
         <li class="nav-item">
             <% if account_signed_in? %>
+                <li> <%= link_to 'Приборы учета', watermeters_path, class: 'nav-link active' %> </li>
+                <li> <%= link_to 'Расчеты', watermeters_path, class: 'nav-link active' %> </li>
+                <li> <%= link_to 'Оплата',  watermeters_path, class: 'nav-link active' %> </li>
                 <li> <%= link_to 'Выход', destroy_account_session_path, method: :delete, class: 'nav-link active' %> </li>
             <% else %>
                 <li> <%= link_to 'Вход', new_account_session_path, class: 'nav-link active' %> </li>
             <% end %>
         </li>
       </ul>
-     
     </div>
   </div>
 </nav>
-

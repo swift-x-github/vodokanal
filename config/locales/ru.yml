@@ -1,0 +1,8 @@
+ru:
+  activerecord:
+    models:
+      watermeter: "Водомер"
+      watermeter_indication: "показания"
+      vodokanal: "водоканал"
+    attributes:
+      wm_model: "Модель"

@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+  <h1>Приборы учета</h1>
+  <%= link_to 'Добавить прибор', new_watermeter_path, class: 'btn btn-primary' %>
+
+  <div class = "table-responsive">
+    <table class = "table table-striped table-sm">
+      <thead>
+        <tr>
+         <th>Id</th>
+          <th>Модель</th>
+          <th>Діаметр</th>
+          <th>Адреса</th>
+          <th>Стан</th>
+          <th>Остання дата данних</th>
+          <th>Останні данні</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @watermeters.each do |watermeter| %>
+          <tr>
+            <td><%= watermeter.id %></td>
+            <td><%= watermeter.wm_model %></td>
+            <td><%= watermeter.wm_diameter %></td>
+            <td><%= watermeter.wm_address %></td>
+            <td><%= watermeter.wm_stan %></td>
+            <td><%= watermeter.wm_last_sent_report_date.strftime("%d.%m.%Y") %></td>
+            <td><%= watermeter.wm_last_sent_report_params %></td>
+            <td><%= link_to 'Просмотр паспорта', watermeter, class: 'btn btn-primary' %></td>
+            <td><%= link_to 'Журнал показаний', watermeter_watermeter_indications_path(watermeter.id), class: 'btn btn-primary' %></td>
+            <td><%= link_to 'Передать показаня', new_watermeter_watermeter_indication_path(watermeter.id) , class: 'btn btn-primary' %></td>
+            <td><%= link_to 'Редактировать', edit_watermeter_path(watermeter), class: 'btn btn-warning'  %></td>
+            <td><%= link_to 'Удалить', watermeter, class: 'btn btn-danger' , method: :delete, data: { confirm: 'Вы действительно хотите удалить устройство?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+ </div>

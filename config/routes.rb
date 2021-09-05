@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :accounts
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :vodokanals
+  resources :watermeters do
+    resources :watermeter_indications
+  end
   root to: 'home#index'
+
+  resources :watermeters 
+
+  devise_for :accounts
 end

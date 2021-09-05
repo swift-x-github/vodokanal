@@ -1,0 +1,82 @@
+        <!-- start login section -->
+        <section class="login">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 center-col">
+                        <div class="common-form">
+                       <div class="row">
+                        <%= form_with(model: vodokanal, local: true) do |form| %>
+                          <% if vodokanal.errors.any? %>
+                            <div id="error_explanation">
+                              <h2><%= pluralize(vodokanal.errors.count, "error") %> prohibited this vodokanal from being saved:</h2>
+
+                              <ul>
+                                <% vodokanal.errors.full_messages.each do |message| %>
+                                  <li><%= message %></li>
+                                <% end %>
+                              </ul>
+                            </div>
+                          <% end %>
+
+                          <div class="col-md-12 margin-15px-bottom">
+                            <%= form.label :full_name %>
+                            <%= form.text_field :full_name %>
+                          </div>
+
+                          <div class="col-md-12 margin-15px-bottom">
+                            <%= form.label :short_name %>
+                            <%= form.text_field :short_name %>
+                          </div>
+
+                          <div class="col-md-12 margin-15px-bottom">
+                            <%= form.label :address %>
+                            <%= form.text_field :address %>
+                          </div>
+
+                          <div class="col-md-12 margin-15px-bottom">
+                            <%= form.label :tel_1 %>
+                            <%= form.text_field :tel_1 %>
+                          </div>
+
+                          <div class="col-md-12 margin-15px-bottom">
+                            <%= form.label :tel_2 %>
+                            <%= form.text_field :tel_2 %>
+                          </div>
+
+                          <div class="col-md-12 margin-15px-bottom">
+                            <%= form.label :tel_3 %>
+                            <%= form.text_field :tel_3 %>
+                          </div>
+
+                          <div class="col-md-12 margin-15px-bottom">
+                            <%= form.label :email %>
+                            <%= form.text_field :email %>
+                          </div>
+
+                          <div class="col-md-12 margin-15px-bottom">
+                            <%= form.label :director %>
+                            <%= form.text_field :director %>
+                          </div>
+
+                          <div class="col-md-12 margin-15px-bottom">
+                            <%= form.label :acounter %>
+                            <%= form.text_field :acounter %>
+                          </div>
+
+                          <div class="col-md-12 margin-15px-bottom">
+                            <%= form.label :information %>
+                            <%= form.text_area :information %>
+                          </div>
+
+                          <div class="col-12">
+                            <%= form.submit %>
+                          </div>
+                        <% end %>
+                       </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- end login section -->

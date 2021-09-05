@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+<div class = "jumbotron">
+    <p>
+      <b>Переданные данные:</b>
+      <%= @watermeter_indication.data %>
+    </p>
+
+
+    <%= link_to 'Редактировать', edit_watermeter_watermeter_indication_path(@watermeter_indication.watermeter, @watermeter_indication), class: 'btn btn-primary' %> |
+    <%= link_to 'Вернуться', watermeter_watermeter_indications_path(@watermeter_indication.watermeter), class: 'btn btn-dark' %>
+</div>

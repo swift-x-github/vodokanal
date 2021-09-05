@@ -1,0 +1,112 @@
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 center-col">
+                <div class="common-form">
+                                
+                <p id="notice"><%= notice %></p>
+                <h2> Информация о водомере </h2>
+                <p>
+                  <strong>Модель водомера :</strong>
+                  <%= @watermeter.wm_model %>
+                </p>
+
+                <p>
+                  <strong>Заводской номер :</strong>
+                  <%= @watermeter.wm_factory_number %>
+                </p>
+
+                <p>
+                  <strong>Диаметр:</strong>
+                  <%= @watermeter.wm_diameter %>
+                </p>
+
+                <p>
+                  <strong>Адрес установки:</strong>
+                  <%= @watermeter.wm_address %>
+                </p>
+
+                <p>
+                  <strong>Дата производства:</strong>
+                  <%= @watermeter.wm_make_date %>
+                </p>
+
+                <p>
+                  <strong>Дата установки:</strong>
+                  <%= @watermeter.wm_install_date %>
+                </p>
+
+                <p>
+                  <strong>Состояние:</strong>
+                  <%= @watermeter.wm_stan %>
+                </p>
+
+                <p>
+                  <strong>№ техусловий:</strong>
+                  <%= @watermeter.wm_tu_number %>
+                </p>
+
+                <p>
+                  <strong>дата выдачи техусловия:</strong>
+                  <%= @watermeter.wm_tu_date %>
+                </p>
+
+                <p>
+                  <strong>тип пломбы:</strong>
+                  <%= @watermeter.wm_plomba_type %>
+                </p>
+
+                <p>
+                  <strong>интервал поверки:</strong>
+                  <%= @watermeter.wm_poverka_interval %>
+                </p>
+
+                <p>
+                  <strong>последняя дата поверки:</strong>
+                  <%= @watermeter.wm_poverka_last_date %>
+                </p>
+
+                <p>
+                  <strong>следующая дата поверки:</strong>
+                  <%= @watermeter.wm_poverka_next_date %>
+                </p>
+
+                <p>
+                  <strong>дата контрольных показаний:</strong>
+                  <%= @watermeter.wm_control_check_date %>
+                </p>
+
+                <p>
+                  <strong>контрольные показания:</strong>
+                  <%= @watermeter.wm_control_check_params %>
+                </p>
+
+                <p>
+                  <strong>дата последних показания принятые к расчету:</strong>
+                  <%= @watermeter.wm_last_accept_report_date %>
+                </p>
+
+                <p>
+                  <strong>последние показания принятые к расчету:</strong>
+                  <%= @watermeter.wm_last_accept_report_params %>
+                </p>
+
+                <p>
+                  <strong>дата последних переданых показаний:</strong>
+                  <%= @watermeter.wm_last_sent_report_date %>
+                </p>
+
+                <p>
+                  <strong>последние переданные показания:</strong>
+                  <%= @watermeter.wm_last_sent_report_params %>
+                </p>
+
+                <p>
+                  <strong>последнее переданное состояние:</strong>
+                  <%= @watermeter.wm_last_sent_report_stan %>
+                </p>
+                <%= link_to 'Редактировать ', edit_watermeter_path(@watermeter), class: 'btn btn-primary' %> |
+                <%= link_to 'Назад', watermeters_path, class: 'btn btn-dark' %>
+            </div>
+            </div>
+        </div>
+    </div>

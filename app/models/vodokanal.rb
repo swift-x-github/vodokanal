@@ -1,0 +1,2 @@
+class Vodokanal < ApplicationRecord
+end

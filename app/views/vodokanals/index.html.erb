@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+<div class = "jumbotron">
+<h1>Vodokanals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Full name</th>
+      <th>Short name</th>
+      <th>Address</th>
+      <th>Tel 1</th>
+      <th>Tel 2</th>
+      <th>Tel 3</th>
+      <th>Email</th>
+      <th>Director</th>
+      <th>Acounter</th>
+      <th>Information</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vodokanals.each do |vodokanal| %>
+      <tr>
+        <td><%= vodokanal.full_name %></td>
+        <td><%= vodokanal.short_name %></td>
+        <td><%= vodokanal.address %></td>
+        <td><%= vodokanal.tel_1 %></td>
+        <td><%= vodokanal.tel_2 %></td>
+        <td><%= vodokanal.tel_3 %></td>
+        <td><%= vodokanal.email %></td>
+        <td><%= vodokanal.director %></td>
+        <td><%= vodokanal.acounter %></td>
+        <td><%= vodokanal.information %></td>
+        <td><%= link_to 'Show', vodokanal %></td>
+        <td><%= link_to 'Edit', edit_vodokanal_path(vodokanal) %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>

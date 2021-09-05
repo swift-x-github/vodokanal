@@ -75,6 +75,8 @@ GEM
     childprocess (3.0.0)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
+    date_range_formatter (0.1.1)
+      activesupport (>= 3.2.0)
     devise (4.8.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -105,6 +107,7 @@ GEM
     mini_portile2 (2.6.1)
     minitest (5.14.4)
     msgpack (1.4.2)
+    nested_scaffold (1.1.0)
     nio4r (2.5.8)
     nokogiri (1.12.3)
       mini_portile2 (~> 2.6.1)
@@ -140,6 +143,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.1)
       loofah (~> 2.3)
+    rails-i18n (6.0.0)
+      i18n (>= 0.7, < 2)
+      railties (>= 6.0.0, < 7)
     railties (6.0.4.1)
       actionpack (= 6.0.4.1)
       activesupport (= 6.0.4.1)
@@ -216,13 +222,16 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  date_range_formatter
   devise
   font-awesome-rails
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  nested_scaffold (~> 1.1)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
+  rails-i18n
   sass-rails (>= 6)
   selenium-webdriver
   spring

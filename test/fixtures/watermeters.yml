@@ -1,0 +1,47 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  wm_model: MyString
+  wm_factory_number: MyString
+  wm_diameter: 1
+  wm_address: MyString
+  wm_make_date: 2021-08-22
+  wm_install_date: 2021-08-22
+  wm_stan: MyString
+  wm_tu_number: MyString
+  wm_tu_date: 2021-08-22
+  wm_plomba_type: MyString
+  wm_poverka_interval: 1
+  wm_poverka_last_date: 2021-08-22
+  wm_poverka_next_date: 2021-08-22
+  wm_control_check_date: 2021-08-22
+  wm_control_check_params: 1.5
+  wm_last_accept_report_date: 2021-08-22
+  wm_last_accept_report_params: 1.5
+  wm_last_sent_report_date: 2021-08-22
+  wm_last_sent_report_params: MyString
+  wm_last_sent_report_stan: MyString
+  account: one
+
+two:
+  wm_model: MyString
+  wm_factory_number: MyString
+  wm_diameter: 1
+  wm_address: MyString
+  wm_make_date: 2021-08-22
+  wm_install_date: 2021-08-22
+  wm_stan: MyString
+  wm_tu_number: MyString
+  wm_tu_date: 2021-08-22
+  wm_plomba_type: MyString
+  wm_poverka_interval: 1
+  wm_poverka_last_date: 2021-08-22
+  wm_poverka_next_date: 2021-08-22
+  wm_control_check_date: 2021-08-22
+  wm_control_check_params: 1.5
+  wm_last_accept_report_date: 2021-08-22
+  wm_last_accept_report_params: 1.5
+  wm_last_sent_report_date: 2021-08-22
+  wm_last_sent_report_params: MyString
+  wm_last_sent_report_stan: MyString
+  account: two

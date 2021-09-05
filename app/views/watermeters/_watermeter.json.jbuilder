@@ -1,0 +1,2 @@
+json.extract! watermeter, :id, :wm_model, :wm_factory_number, :wm_diameter, :wm_address, :wm_make_date, :wm_install_date, :wm_stan, :wm_tu_number, :wm_tu_date, :wm_plomba_type, :wm_poverka_interval, :wm_poverka_last_date, :wm_poverka_next_date, :wm_control_check_date, :wm_control_check_params, :wm_last_accept_report_date, :wm_last_accept_report_params, :wm_last_sent_report_date, :wm_last_sent_report_params, :wm_last_sent_report_stan, :account_id, :created_at, :updated_at
+json.url watermeter_url(watermeter, format: :json)

@@ -1,0 +1,23 @@
+<div class = "jumbotron">
+  <%= form_for([@watermeter_indication.watermeter, @watermeter_indication]) do |f| %>
+    <% if @watermeter_indication.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@watermeter_indication.errors.count, "error") %> prohibited this watermeter_indication from being saved:</h2>
+
+        <ul>
+        <% @watermeter_indication.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :data, 'Актуальные показатели' %><br />
+      <%= f.text_field :data %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
