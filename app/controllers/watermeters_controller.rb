@@ -31,7 +31,7 @@ class WatermetersController < ApplicationController
 
     respond_to do |format|
       if @watermeter.save
-        format.html { redirect_to @watermeter, notice: "Watermeter was successfully created." }
+        format.html { redirect_to @watermeter, notice: "Водомер успешно создан." }
         format.json { render :show, status: :created, location: @watermeter }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -44,7 +44,7 @@ class WatermetersController < ApplicationController
   def update
     respond_to do |format|
       if @watermeter.update(watermeter_params)
-        format.html { redirect_to @watermeter, notice: "Watermeter was successfully updated." }
+        format.html { redirect_to @watermeter, notice: "Информация о водомере успешно обновлена." }
         format.json { render :show, status: :ok, location: @watermeter }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,7 +57,7 @@ class WatermetersController < ApplicationController
   def destroy
     @watermeter.destroy
     respond_to do |format|
-      format.html { redirect_to watermeters_url, notice: "Watermeter was successfully destroyed." }
+      format.html { redirect_to watermeters_url, notice: "Водомер успешно удален" }
       format.json { head :no_content }
     end
   end

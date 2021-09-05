@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :vodokanals
+  
+  resources :vodokanals 
+    
+
   resources :watermeters do
     resources :watermeter_indications
   end
@@ -8,4 +11,7 @@ Rails.application.routes.draw do
   resources :watermeters 
 
   devise_for :accounts
+
+   
+  
 end

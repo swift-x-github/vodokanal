@@ -1,6 +1,6 @@
 class VodokanalsController < ApplicationController
   before_action :set_vodokanal, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_account!, except: [:show]
   # GET /vodokanals or /vodokanals.json
   def index
     @vodokanals = Vodokanal.all

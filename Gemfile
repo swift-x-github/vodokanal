@@ -38,6 +38,8 @@ gem 'nested_scaffold', '~> 1.1'
 #gem 'inherited_resources'
 gem 'date_range_formatter'
 
+gem 'rails_admin', '~> 2.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

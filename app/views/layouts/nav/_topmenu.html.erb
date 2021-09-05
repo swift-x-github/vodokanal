@@ -14,6 +14,7 @@
                 <li> <%= link_to 'Приборы учета', watermeters_path, class: 'nav-link active' %> </li>
                 <li> <%= link_to 'Расчеты', watermeters_path, class: 'nav-link active' %> </li>
                 <li> <%= link_to 'Оплата',  watermeters_path, class: 'nav-link active' %> </li>
+                <li> <%= link_to 'Аккаунт', edit_account_registration_path,  class: 'nav-link active' %> </li>
                 <li> <%= link_to 'Выход', destroy_account_session_path, method: :delete, class: 'nav-link active' %> </li>
             <% else %>
                 <li> <%= link_to 'Вход', new_account_session_path, class: 'nav-link active' %> </li>

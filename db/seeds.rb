@@ -1,9 +1,19 @@
-puts "seeding test account:"
+puts "seeding test admin account:"
     account = Account.new
-    account.email = 'kurort.sergeevka@gmail.com'
+    account.email = 'swift.x@yahoo.com'
     account.password = '123123'
+    account.account_type = 'admin'
     account.save!
-puts "seeding account done."
+puts "seeding admin account done."
+
+puts "seeding test user account:"
+    account = Account.new
+    account.email = 'swift.x@yahoo.com'
+    account.password = '123123'
+    account.account_type = 'user'
+    account.save!
+puts "seeding user account done."
+
 
 puts "seeding test watermeter:"
     watermeter = Watermeter.new
