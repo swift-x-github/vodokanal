@@ -1,7 +1,7 @@
 class WatermeterIndicationsController < ApplicationController
   before_action :set_watermeter
   before_action :set_watermeter_indication, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_last_ind, only: [:update]
   # GET watermeters/1/watermeter_indications
   def index
     @watermeter_indications = @watermeter.watermeter_indications
@@ -23,6 +23,7 @@ class WatermeterIndicationsController < ApplicationController
   # POST watermeters/1/watermeter_indications
   def create
     @watermeter_indication = @watermeter.watermeter_indications.build(watermeter_indication_params)
+    @watermeter.update({:wm_last_sent_report_params => @watermeter_indication.data })
 
     if @watermeter_indication.save
       redirect_to([@watermeter_indication.watermeter, @watermeter_indication], notice: 'Watermeter indication was successfully created.')
@@ -61,4 +62,10 @@ class WatermeterIndicationsController < ApplicationController
     def watermeter_indication_params
       params.require(:watermeter_indication).permit(:data)
     end
+
+    def set_last_ind
+      @watermeter.wm_last_sent_report_params = @watermeter_indication
+    end
+
 end
+ 
