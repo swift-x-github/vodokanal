@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_05_150211) do
+ActiveRecord::Schema.define(version: 2021_09_09_230300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,8 +25,28 @@ ActiveRecord::Schema.define(version: 2021_09_05_150211) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "pers_acc_number"
     t.string "account_type"
+    t.boolean "superadmin_role", default: false
+    t.boolean "supervisor_role", default: false
+    t.boolean "user_role", default: true
     t.index ["email"], name: "index_accounts_on_email", unique: true
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
+  end
+
+  create_table "vodokanal_props", force: :cascade do |t|
+    t.string "account_name"
+    t.string "iban_code"
+    t.string "account_number"
+    t.string "swift_code"
+    t.string "bank_name"
+    t.string "mfo_number"
+    t.string "edrpou_number"
+    t.string "ipn_number"
+    t.string "pdv_number"
+    t.string "info"
+    t.bigint "vodokanal_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["vodokanal_id"], name: "index_vodokanal_props_on_vodokanal_id"
   end
 
   create_table "vodokanals", force: :cascade do |t|
@@ -74,6 +94,7 @@ ActiveRecord::Schema.define(version: 2021_09_05_150211) do
     t.float "wm_last_sent_report_params"
     t.string "wm_last_sent_report_stan"
     t.bigint "account_id", null: false
+    t.bigint "vodokanal_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "wm_name"
@@ -81,8 +102,11 @@ ActiveRecord::Schema.define(version: 2021_09_05_150211) do
     t.integer "wm_plomba_num"
     t.date "wm_plomba_date"
     t.index ["account_id"], name: "index_watermeters_on_account_id"
+    t.index ["vodokanal_id"], name: "index_watermeters_on_vodokanal_id"
   end
 
+  add_foreign_key "vodokanal_props", "vodokanals"
   add_foreign_key "watermeter_indications", "watermeters"
   add_foreign_key "watermeters", "accounts"
+  add_foreign_key "watermeters", "vodokanals"
 end

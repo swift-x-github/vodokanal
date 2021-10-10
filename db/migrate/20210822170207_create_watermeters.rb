@@ -22,7 +22,8 @@ class CreateWatermeters < ActiveRecord::Migration[6.0]
       t.float :wm_last_sent_report_params
       t.string :wm_last_sent_report_stan
       t.references :account, null: false, foreign_key: true
-
+      t.references :vodokanal, null: false, foreign_key: true
+      
       t.timestamps
     end
   end

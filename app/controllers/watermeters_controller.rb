@@ -28,6 +28,7 @@ class WatermetersController < ApplicationController
   def create
     @watermeter = Watermeter.new(watermeter_params)
     @watermeter.account_id = current_account.id
+    @watermeter.vodokanal_id = "1"
 
     respond_to do |format|
       if @watermeter.save
@@ -75,6 +76,6 @@ class WatermetersController < ApplicationController
          :wm_poverka_interval, :wm_poverka_last_date, :wm_poverka_next_date, :wm_control_check_date,\
           :wm_control_check_params, :wm_last_accept_report_date, :wm_last_accept_report_params,\
            :wm_last_sent_report_date, :wm_last_sent_report_params, :wm_last_sent_report_stan,\
-           :wm_name, :wm_water_type, :wm_plomba_num, :wm_plomba_date)
+           :wm_name, :wm_water_type, :wm_plomba_num, :wm_plomba_date, :vodokanal_id)
     end
 end

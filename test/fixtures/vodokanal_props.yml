@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  class: MyString
+  account_name: MyString
+  iban_code: MyString
+  account_number: MyString
+  mfo_number: MyString
+  edrpou_number: MyString
+  ipn_number: MyString
+  swift_code: MyString
+  pdv_number: MyString
+  bank_name: MyString
+  info: MyString
+
+two:
+  class: MyString
+  account_name: MyString
+  iban_code: MyString
+  account_number: MyString
+  mfo_number: MyString
+  edrpou_number: MyString
+  ipn_number: MyString
+  swift_code: MyString
+  pdv_number: MyString
+  bank_name: MyString
+  info: MyString

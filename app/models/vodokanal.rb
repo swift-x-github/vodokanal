@@ -1,5 +1,7 @@
 class Vodokanal < ApplicationRecord
-    
+    has_many :vodokanal_props, dependent: :destroy
+    has_many :watermeters, dependent: :destroy
+
     def self.vodokanal_full_name
         Vodokanal.first.full_name
     end
