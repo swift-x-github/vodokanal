@@ -23,10 +23,11 @@ class WatermeterIndicationsController < ApplicationController
   # POST watermeters/1/watermeter_indications
   def create
     @watermeter_indication = @watermeter.watermeter_indications.build(watermeter_indication_params)
-    @watermeter.update({:wm_last_sent_report_params => @watermeter_indication.data })
-    @watermeter.update({:wm_last_sent_report_date => @watermeter_indication.created_at })
-
+    
+    
     if @watermeter_indication.save
+      @watermeter.update({:wm_last_sent_report_params => @watermeter_indication.data }) 
+      @watermeter.update({:wm_last_sent_report_date => @watermeter_indication.created_at })
       redirect_to([@watermeter_indication.watermeter, @watermeter_indication], notice: 'Watermeter indication was successfully created.')
     else
       render action: 'new'

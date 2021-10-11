@@ -4,7 +4,9 @@ class Watermeter < ApplicationRecord
   belongs_to :account
   belongs_to :vodokanal
 
-def self.vodokanal_id
-  Watermeter.first.vodokanal_id
-end
+  def self.vodokanal_id
+    Watermeter.first.vodokanal_id
+  end
+
+ 
 end
