@@ -1,13 +1,13 @@
-<p id="notice"><%= notice %></p>
+
    <section class="login">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7 center-col">
                         <div class="common-form">
+                        <p id="notice"><%= notice %></p>
                             <h3>Переданные данные:  </h3>
                             <h4> последние показания: <%= @watermeter_indication.data %> </h4>
                             <div class="row">
-                              <%= link_to 'Редактировать', edit_watermeter_watermeter_indication_path(@watermeter_indication.watermeter, @watermeter_indication), class: 'btn btn-primary' %> |
                               <%= link_to 'Вернуться', watermeter_watermeter_indications_path(@watermeter_indication.watermeter), class: 'btn btn-dark' %>
                             </div>
                         </div>

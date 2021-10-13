@@ -1,4 +1,5 @@
 <div class = "jumbotron">
+  <%= link_to 'Передать показания водомера', new_watermeter_watermeter_indication_path(params[:watermeter_id]), class: 'btn btn-primary' %>
   <h1>Список переданых показаний</h1>
   <div class = "table-responsive">
     <table class = "table table-striped table-sm">
@@ -9,7 +10,7 @@
       <th></th>
       <th></th>
     </tr>
-
+<%= will_paginate @properties %>
   <% @watermeter_indications.each do |watermeter_indication| %>
     <tr>
       <td><%= watermeter_indication.data %></td>
@@ -23,5 +24,5 @@
   </div>
   <br />
 
-  <%= link_to 'Передать показания водомера', new_watermeter_watermeter_indication_path(params[:watermeter_id]), class: 'btn btn-primary' %>
+
 </div>

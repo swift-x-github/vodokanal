@@ -1,142 +1,187 @@
 
-<div class = "jumbotron">
-
-<%= form_with(model: watermeter, local: true) do |form| %>
-  <% if watermeter.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(watermeter.errors.count, "error") %> prohibited this watermeter from being saved:</h2>
-
-      <ul>
-        <% watermeter.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+<div class="container">
+ 
+    <div class="py-5 text-center">
+      
+      <h2>Карточка приладу обліку</h2>
+      <p class="lead">Редагування інформації про прилад обліку ID <%= @watermeter.id %></p>
     </div>
-  <% end %>
-  <div class="mb-3">
-    <%= form.label :wm_name, 'название водомера', class: 'form-label' %>
-    <%= form.text_field :wm_name, class: 'form-control' %>
-  </div>
 
-  <div class="mb-3">
-    <%= form.label :wm_model, 'модель водомера', class: 'form-label' %>
-    <%= form.text_field :wm_model, class: 'form-control' %>
-  </div>
+   <div class="row g-5">
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Останні показники</span>
+          <span class="badge bg-primary rounded-pill"><%= @watermeter.wm_last_sent_report_params %></span>
+        </h4>
+        <ul class="list-group mb-3">
+          
+        </ul>
+        
+      </div>
+        <div class="col-md-7 col-lg-8 ">
+            <div class="common-form">
+                       
+                <div class="row">
+                                    
+                <%= form_with(model: watermeter, local: true) do |form| %>
+                  <% if watermeter.errors.any? %>
+                    <div id="error_explanation">
+                      <h2><%= pluralize(watermeter.errors.count, "error") %> prohibited this watermeter from being saved:</h2>
 
-  <div class="mb-3">
-    <%= form.label :wm_factory_number, 'заводской номер', class: 'form-label' %>
-    <%= form.text_field :wm_factory_number, class: 'form-control' %>
-  </div>
+                      <ul>
+                        <% watermeter.errors.full_messages.each do |message| %>
+                          <li><%= message %></li>
+                        <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+                    <h4 class="mb-3">Інформація про прилад</h4>
+                  <div class="col-sm-12">
+                    <%= form.label :wm_name, 'название водомера', class: 'form-label' %>
+                    <%= form.text_field :wm_name, class: 'form-control' %>
+                  </div>
+                  
+                  <div class="col-sm-6">
+                        <%= form.label :wm_model, 'модель водомера', class: 'form-label' %>
+                        <div class="input-group has-validation">
+                          <span class="input-group-text">@</span>
+                          <%= form.text_field :wm_model, class: 'form-control' %>
+                        <div class="invalid-feedback">
+                            Заповныть поле "модель".
+                          </div>
+                        </div>
+                  </div>
 
-  <div class="field">
-    <%= form.label :wm_diameter, 'диаметр', class: 'form-label' %>
-    <%= form.number_field :wm_diameter, class: 'form-control' %>
-  </div>
+                  <div class="col-sm-6">
+                    <%= form.label :wm_factory_number, 'заводской номер', class: 'form-label' %>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text">@</span>
+                        <%= form.text_field :wm_factory_number, class: 'form-control' %>
+                        <div class="invalid-feedback">
+                          Your username is required.
+                        </div>
+                    </div>
+                  </div>
 
-  <div class="field">
-    <%= form.label :wm_address, 'адрес установки', class: 'form-label' %>
-    <%= form.text_field :wm_address, class: 'form-control' %>
-  </div>
+                  <div class="col-sm-4">
+                    <%= form.label :wm_diameter, 'диаметр, мм', class: 'form-label' %>
+                    <%= form.number_field :wm_diameter, class: 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :wm_make_date, 'дата производства', class: 'form-label' %>
-    <%= form.date_select :wm_make_date, class: 'form-control' %>
-  </div>
+                  <div class="col-sm-12">
+                    <%= form.label :wm_address, 'адрес установки', class: 'form-label' %>
+                    <%= form.text_field :wm_address, class: 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :wm_install_date, 'дата установки', class: 'form-label' %>
-    <%= form.date_select :wm_install_date, class: 'form-control' %>
-  </div>
+                  <div class="col-sm-12">
+                    <%= form.label :wm_make_date, 'дата производства', class: 'form-label' %>
+                    <%= form.date_select :wm_make_date, class: 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :wm_water_type, 'тип воды',class: 'form-label' %>
-    <%= form.select :wm_water_type, [["холодная","1"], ["горячая","2"]], class: 'form-control' %>
-  </div>
+                  <div class="col-sm-12">
+                    <%= form.label :wm_install_date, 'дата установки', class: 'form-label' %>
+                    <%= form.date_select :wm_install_date, class: 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :wm_stan, 'состояние',class: 'form-label' %>
-    <%= form.select :wm_stan, [["новый","1"], ["бу","2"]], class: 'form-control' %>
-  </div>
+                  <div class="col-sm-6">
+                    <%= form.label :wm_water_type, 'тип воды',class: 'form-label' %>
+                    <%= form.select :wm_water_type, [["холодная","1"], ["горячая","2"]], class: 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :wm_tu_number, '№ ТУ', class: 'form-label' %>
-    <%= form.text_field :wm_tu_number, class: 'form-control' %>
-  </div>
+                  <div class="col-sm-6">
+                    <%= form.label :wm_stan, 'состояние',class: 'form-label' %>
+                    <%= form.select :wm_stan, [["новый","1"], ["бу","2"]], class: 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :wm_tu_date, 'дата ТУ',class: 'form-label' %>
-    <%= form.date_select :wm_tu_date, class: 'form-control' %>
-  </div>
+                  <div class="col-sm-6">
+                    <%= form.label :wm_tu_number, '№ ТУ', class: 'form-label' %>
+                    <%= form.text_field :wm_tu_number, class: 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :wm_plomba_type, 'тип пломбы', class: 'form-label' %>
-    <%= form.select :wm_plomba_type, [["основная","1"], ["антимагнитная","2"], ["голограмма", "3"], ["пломбиратор","4"], ["дополнителная", "5"]],class: 'form-control' %>
-  </div>
+                  <div class="col-sm-12">
+                    <%= form.label :wm_tu_date, 'дата ТУ',class: 'form-label' %>
+                    <%= form.date_select :wm_tu_date, class: 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :wm_plomba_num, '№ пломбы', class: 'form-label' %>
-    <%= form.text_field :wm_plomba_num, class: 'form-control' %>
-  </div>
+                  <div class="col-sm-6">
+                    <%= form.label :wm_plomba_type, 'тип пломбы', class: 'form-label' %>
+                    <%= form.select :wm_plomba_type, [["основная","1"], ["антимагнитная","2"], ["голограмма", "3"], ["пломбиратор","4"], ["дополнителная", "5"]],class: 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :wm_plomba_date, 'дата установки пломбы',class: 'form-label' %>
-    <%= form.date_select :wm_plomba_date, class: 'form-control' %>
-  </div>
+                  <div class="col-sm-6">
+                    <%= form.label :wm_plomba_num, '№ пломбы', class: 'form-label' %>
+                    <%= form.text_field :wm_plomba_num, class: 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :wm_poverka_interval, 'интервал поверки',class: 'form-label' %>
-    <%= form.select :wm_poverka_interval,  [["6 месяцев","1"], ["12 месяцев","2"], ["24 месяца", "3"]], class: 'form-control' %>
-  </div>
+                  <div class="col-sm-12">
+                    <%= form.label :wm_plomba_date, 'дата установки пломбы',class: 'form-label' %>
+                    <%= form.date_select :wm_plomba_date, class: 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :wm_poverka_last_date, 'дата последней поверки',class: 'form-label' %>
-    <%= form.date_select :wm_poverka_last_date, class: 'form-control' %>
-  </div>
+                  <div class="col-sm-6">
+                    <%= form.label :wm_poverka_interval, 'интервал поверки',class: 'form-label' %>
+                    <%= form.select :wm_poverka_interval,  [["6 месяцев","1"], ["12 месяцев","2"], ["24 месяца", "3"]], class: 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :wm_poverka_next_date, 'дата следующей поверки',class: 'form-label' %>
-    <%= form.date_select :wm_poverka_next_date, class: 'form-control' %>
-  </div>
+                  <div class="col-sm-12">
+                    <%= form.label :wm_poverka_last_date, 'дата последней поверки',class: 'form-label' %>
+                    <%= form.date_select :wm_poverka_last_date, class: 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :wm_control_check_date, 'дата контр.показаний', class: 'form-label' %>
-    <%= form.date_select :wm_control_check_date, class: 'form-control' %>
-  </div>
+                  <div class="col-sm-12">
+                    <%= form.label :wm_poverka_next_date, 'дата следующей поверки',class: 'form-label' %>
+                    <%= form.date_select :wm_poverka_next_date, class: 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :wm_control_check_params, 'контр.показания',class: 'form-label' %>
-    <%= form.text_field :wm_control_check_params, class: 'form-control' %>
-  </div>
+                  <div class="col-sm-12">
+                    <%= form.label :wm_control_check_date, 'дата контр.показаний', class: 'form-label' %>
+                    <%= form.date_select :wm_control_check_date, class: 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :wm_last_accept_report_date, 'дата последних показаний принятые к расчету',class: 'form-label' %>
-    <%= form.date_select :wm_last_accept_report_date, class: 'form-control' %>
-  </div>
+                  <div class="col-sm-6">
+                    <%= form.label :wm_control_check_params, 'контр.показания',class: 'form-label' %>
+                    <%= form.text_field :wm_control_check_params, class: 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :wm_last_accept_report_params, 'последние показания принятые к расчету',class: 'form-label' %>
-    <%= form.text_field :wm_last_accept_report_params, class: 'form-control' %>
-  </div>
+                  <div class="col-sm-6">
+                    <%= form.label :wm_last_accept_report_date, 'дата последних показаний которые принятые к расчету',class: 'form-label' %>
+                    <%= form.date_select :wm_last_accept_report_date, class: 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :wm_last_sent_report_date, 'дата последних  переданных показаний',class: 'form-label' %>
-    <%= form.date_select :wm_last_sent_report_date, class: 'form-control' %>
-  </div>
+                  <div class="col-sm-6">
+                    <%= form.label :wm_last_accept_report_params, 'последние показания принятые к расчету',class: 'form-label' %>
+                    <%= form.text_field :wm_last_accept_report_params, class: 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :wm_last_sent_report_params, 'последние переданные показания', class: 'form-label' %>
-    <%= form.text_field :wm_last_sent_report_params, class: 'form-control' %>
-  </div>
+                  <div class="col-sm-12">
+                    <%= form.label :wm_last_sent_report_date, 'дата последних  переданных показаний',class: 'form-label' %>
+                    <%= form.date_select :wm_last_sent_report_date, class: 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :wm_last_sent_report_stan, 'последнее переданное состояние', class: 'form-label' %>
-    <%= form.select :wm_last_sent_report_stan, [["включен","1"], ["отключен","2"]],  class: 'form-control' %>
-  </div>
+                  <div class="col-sm-6">
+                    <%= form.label :wm_last_sent_report_params, 'последние переданные показания', class: 'form-label' %>
+                    <%= form.text_field :wm_last_sent_report_params, class: 'form-control' %>
+                  </div>
 
-  <div class="actions">
-    <%= form.submit class: 'btn btn-primary' %>
-  </div>
-<% end %>
+                  <div class="col-sm-4">
+                    <%= form.label :wm_last_sent_report_stan, 'последнее переданное состояние', class: 'form-label' %>
+                    <%= form.select :wm_last_sent_report_stan, [["включен","1"], ["отключен","2"]],  class: 'form-control' %>
+                  </div>
 
+                  <div class="actions">
+                    <%= form.submit class: 'w-100 btn btn-primary btn-lg' %>
+                  </div>
+                <% end %>
+
+                </div>
+          </div>
+        </div>
+    
+    </div>
+
+   
+
+    </div>
+ 
 </div>
-
+ 

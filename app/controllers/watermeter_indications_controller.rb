@@ -4,7 +4,7 @@ class WatermeterIndicationsController < ApplicationController
   before_action :set_last_ind, only: [:update]
   # GET watermeters/1/watermeter_indications
   def index
-    @watermeter_indications = @watermeter.watermeter_indications
+    @watermeter_indications = @watermeter.watermeter_indications.order('created_at DESC').page(params[:page]).per_page(10)
   end
 
   # GET watermeters/1/watermeter_indications/1
@@ -23,12 +23,10 @@ class WatermeterIndicationsController < ApplicationController
   # POST watermeters/1/watermeter_indications
   def create
     @watermeter_indication = @watermeter.watermeter_indications.build(watermeter_indication_params)
-    
-    
     if @watermeter_indication.save
       @watermeter.update({:wm_last_sent_report_params => @watermeter_indication.data }) 
       @watermeter.update({:wm_last_sent_report_date => @watermeter_indication.created_at })
-      redirect_to([@watermeter_indication.watermeter, @watermeter_indication], notice: 'Watermeter indication was successfully created.')
+      redirect_to([@watermeter_indication.watermeter, @watermeter_indication], notice: 'Показания водомера переданы успешно.')
     else
       render action: 'new'
     end

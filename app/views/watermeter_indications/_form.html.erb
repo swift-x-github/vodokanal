@@ -1,19 +1,26 @@
+   
    <section class="login">
             <div class="container">
+            
                 <div class="row">
-                    <div class="col-lg-7 center-col">
+                    <div class="col-lg-12 center-col">
+                    
                         <div class="common-form">
-                            <h3>Передача показників  </h3>
-                            <h4> до приладу id: <%= @watermeter_indication.watermeter.id %> </h4>
-                            <h4> последние показания: <%= @watermeter_indication.watermeter.wm_last_sent_report_params %> </h4>
-                            <div class="row">
-                                                        
-                                                
+                        <div class="jumbotron">
+                            <h4> Передача данных водомера <span class="badge bg-primary rounded-pill"> <%= @watermeter_indication.watermeter.id %></span> </h4>
+                            <h4>  данные передавались:  
+                            <span class="badge bg-primary rounded-pill"><%= @watermeter.wm_last_sent_report_date.to_formatted_s(:long)  %></span></h4>
+                            <h4> последние данные:  
+                            <span class="badge bg-primary rounded-pill"><%= @watermeter.wm_last_sent_report_params %></span></h4>
+                           
+                        </div>
+                        <div class="jumbotron">
+                          
+                            
                           <%= form_for([@watermeter_indication.watermeter, @watermeter_indication]) do |f| %>
                             <% if @watermeter_indication.errors.any? %>
                               <div id="error_explanation">
                                 <h2><%= pluralize(@watermeter_indication.errors.count, "error") %> prohibited this watermeter_indication from being saved:</h2>
-
                                 <ul>
                                 <% @watermeter_indication.errors.full_messages.each do |msg| %>
                                   <li><%= msg %></li>
@@ -22,15 +29,20 @@
                               </div>
                             <% end %>
 
-                            <div class="field">
-                              <%= f.label :data, 'Актуальные показатели' %><br />
+                            <div class="col-sm-12">
+                              <%= f.label :data, 'Введите Ваши данные' %><br />
                               <%= f.text_field :data %>
                             </div>
-                            <div class="actions">
-                              <%= f.submit %>
+                            <div class="col-sm-12">
+                            <br>
                             </div>
-                            <%= link_to 'Вернуться', watermeter_watermeter_indications_path(@watermeter_indication.watermeter), class: 'btn btn-primary' %>
+                            
+                            <div class="actions">
+                              <%= f.submit class: 'w-100 btn btn-primary btn-lg' %>
+                            </div>
+                            <%= link_to 'Вернуться', watermeter_watermeter_indications_path(@watermeter_indication.watermeter), class: 'w-100 btn btn-secondary btn-lg' %>
                           <% end %>
+                       
                         </div>
                     </div>
                 </div>
