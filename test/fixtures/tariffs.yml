@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  price: 1.5
+  description: MyString
+  date_start: 2021-10-13
+  status: 1
+
+two:
+  name: MyText
+  price: 1.5
+  description: MyString
+  date_start: 2021-10-13
+  status: 1

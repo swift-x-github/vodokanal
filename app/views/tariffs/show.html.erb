@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+
+<%= link_to 'Редактировать', edit_tariff_path(@tariff), class: 'btn btn-primary' %> |
+<%= link_to 'Вернуться', tariffs_path, class: 'btn btn-secondary' %>
+<div class = "jumbotron">
+<div class="col-lg-4 sm-margin-35px-bottom wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+                        <div class="item text-center active bg-theme-90">
+                            <div class="type">
+
+                                <h4 class="font-size22 sm-font-size20 xs-font-size18"><%= @tariff.name %></h4>
+                            </div>
+                            <div class="value">
+                                <h3> <%= @tariff.price %><span>грн.</span></h3>
+                                <span class="per"> /за 1 м.куб.</span>
+                            </div>
+                            <div class="features">
+                                <p>
+                                  <strong>Описание:</strong>
+                                  <%= @tariff.description %>
+                                </p>
+                                <p>
+                                  <strong>Дата начала действия тарифа:</strong>
+                                  <%= @tariff.date_start %>
+                                </p>
+                                <p>
+                                  <strong>Статус:</strong>
+                                  <%= @tariff.status %>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_09_230300) do
+ActiveRecord::Schema.define(version: 2021_10_13_180248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,29 @@ ActiveRecord::Schema.define(version: 2021_09_09_230300) do
     t.boolean "user_role", default: true
     t.index ["email"], name: "index_accounts_on_email", unique: true
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
+  end
+
+  create_table "computations", force: :cascade do |t|
+    t.string "name"
+    t.float "water_consumption"
+    t.float "price"
+    t.float "summa"
+    t.date "b_period"
+    t.date "e_period"
+    t.bigint "account_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_computations_on_account_id"
+  end
+
+  create_table "tariffs", force: :cascade do |t|
+    t.text "name"
+    t.float "price"
+    t.string "description"
+    t.date "date_start"
+    t.integer "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "vodokanal_props", force: :cascade do |t|
@@ -105,6 +128,7 @@ ActiveRecord::Schema.define(version: 2021_09_09_230300) do
     t.index ["vodokanal_id"], name: "index_watermeters_on_vodokanal_id"
   end
 
+  add_foreign_key "computations", "accounts"
   add_foreign_key "vodokanal_props", "vodokanals"
   add_foreign_key "watermeter_indications", "watermeters"
   add_foreign_key "watermeters", "accounts"

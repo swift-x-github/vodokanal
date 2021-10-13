@@ -1,0 +1,52 @@
+<%= form_with(model: computation, local: true) do |form| %>
+  <% if computation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(computation.errors.count, "error") %> prohibited this computation from being saved:</h2>
+
+      <ul>
+        <% computation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :water_consumption %>
+    <%= form.text_field :water_consumption %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :summa %>
+    <%= form.text_field :summa %>
+  </div>
+
+  <div class="field">
+    <%= form.label :b_period %>
+    <%= form.date_select :b_period %>
+  </div>
+
+  <div class="field">
+    <%= form.label :e_period %>
+    <%= form.date_select :e_period %>
+  </div>
+
+  <div class="field">
+    <%= form.label :account_id %>
+    <%= form.text_field :account_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

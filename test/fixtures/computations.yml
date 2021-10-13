@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  water_consumption: 1.5
+  price: 1.5
+  summa: 1.5
+  b_period: 2021-10-13
+  e_period: 2021-10-13
+  account: one
+
+two:
+  name: MyString
+  water_consumption: 1.5
+  price: 1.5
+  summa: 1.5
+  b_period: 2021-10-13
+  e_period: 2021-10-13
+  account: two

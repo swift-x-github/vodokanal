@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @computation.name %>
+</p>
+
+<p>
+  <strong>Water consumption:</strong>
+  <%= @computation.water_consumption %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @computation.price %>
+</p>
+
+<p>
+  <strong>Summa:</strong>
+  <%= @computation.summa %>
+</p>
+
+<p>
+  <strong>B period:</strong>
+  <%= @computation.b_period %>
+</p>
+
+<p>
+  <strong>E period:</strong>
+  <%= @computation.e_period %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @computation.account_id %>
+</p>
+
+<%= link_to 'Edit', edit_computation_path(@computation) %> |
+<%= link_to 'Back', computations_path %>

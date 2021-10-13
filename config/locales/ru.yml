@@ -4,5 +4,7 @@ ru:
       watermeter: "Водомер"
       watermeter_indication: "данные"
       vodokanal: "водоканал"
+      tariff: "Тариф"
     attributes:
-      wm_model: "Модель"
+      tariff: "Модель"
+      

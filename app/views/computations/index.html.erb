@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Computations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Water consumption</th>
+      <th>Price</th>
+      <th>Summa</th>
+      <th>B period</th>
+      <th>E period</th>
+      <th>Account</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @computations.each do |computation| %>
+      <tr>
+        <td><%= computation.name %></td>
+        <td><%= computation.water_consumption %></td>
+        <td><%= computation.price %></td>
+        <td><%= computation.summa %></td>
+        <td><%= computation.b_period %></td>
+        <td><%= computation.e_period %></td>
+        <td><%= computation.account_id %></td>
+        <td><%= link_to 'Show', computation %></td>
+        <td><%= link_to 'Edit', edit_computation_path(computation) %></td>
+        <td><%= link_to 'Destroy', computation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Computation', new_computation_path %>
