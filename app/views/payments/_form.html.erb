@@ -1,0 +1,80 @@
+<section class="login">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 center-col">
+                        <div class="common-form">
+                            <h3>Новая оплата</h3>
+                            <%= form_with(model: payment, local: true) do |form| %>
+                              <% if payment.errors.any? %>
+                                <div id="error_explanation">
+                                  <h2><%= pluralize(payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
+
+                                  <ul>
+                                    <% payment.errors.full_messages.each do |message| %>
+                                      <li><%= message %></li>
+                                    <% end %>
+                                  </ul>
+                                </div>
+                              <% end %>
+
+                              <div class="field">
+                                <%= form.label :name, 'Название документа' %>
+                                <%= form.text_field :name %>
+                              </div>
+
+                              <div class="field">
+                                <%= form.label :doc_num, 'номер документа' %>
+                                <%= form.text_field :doc_num %>
+                              </div>
+
+                               <div class="field">
+                                <%= form.label :doc_date, 'дата документа' %>
+                                <%= form.date_field :doc_date %>
+                              </div>
+
+                              <div class="field">
+                                <%= form.label :summa, 'сумма документа' %>
+                                <%= form.text_field :summa %>
+                              </div>
+
+                              <div class="field">
+                                <%= form.label :status, 'статус' %>
+                                <%= form.number_field :status %>
+                              </div>
+
+                              <div class="field">
+                                <%= form.label :payment_type, 'тип зачисления' %>
+                                <%= form.number_field :payment_type %>
+                              </div>
+
+                              <div class="field">
+                                <%= form.label :description, 'назначение платежа' %>
+                                <%= form.text_field :description %>
+                              </div>
+
+                              <div class="field">
+                                <%= form.label :computation_id, 'ID начисления' %>
+                                <%= form.text_field :computation_id %>
+                              </div>
+
+                              <div class="field">
+                                <%= form.label :account_id, 'ID пользователя' %>
+                                <%= form.text_field :account_id %>
+                              </div>
+
+                              <div class="field">
+                                <%= form.label :vodokanal_id, 'ID водоканал' %>
+                                <%= form.text_field :vodokanal_id %>
+                              </div>
+
+                              <div class="actions">
+                                <%= form.submit %>
+                              </div>
+                            <% end %>
+
+                     </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>

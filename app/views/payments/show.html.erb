@@ -1,0 +1,58 @@
+   <div class="container">
+        <div class="row">
+            <div class="col-lg-7 center-col">
+                <div class="common-form">
+
+                <p id="notice"><%= notice %></p>
+
+                <p>
+                  <strong>Name:</strong>
+                  <%= @payment.name %>
+                </p>
+
+                <p>
+                  <strong>Doc num:</strong>
+                  <%= @payment.doc_num %>
+                </p>
+
+                <p>
+                  <strong>Summa:</strong>
+                  <%= @payment.summa %>
+                </p>
+
+                <p>
+                  <strong>Status:</strong>
+                  <%= @payment.status %>
+                </p>
+
+                <p>
+                  <strong>Type:</strong>
+                  <%= @payment.payment_type %>
+                </p>
+
+                <p>
+                  <strong>Description:</strong>
+                  <%= @payment.description %>
+                </p>
+
+                <p>
+                  <strong>Computation:</strong>
+                  <%= @payment.computation_id %>
+                </p>
+
+                <p>
+                  <strong>Account:</strong>
+                  <%= @payment.account_id %>
+                </p>
+
+                <p>
+                  <strong>Vodokanal:</strong>
+                  <%= @payment.vodokanal_id %>
+                </p>
+
+                <%= link_to 'Edit', edit_payment_path(@payment) %> |
+                <%= link_to 'Back', payments_path %>
+                </div>
+            </div>
+        </div>
+    </div>

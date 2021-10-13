@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_180248) do
+ActiveRecord::Schema.define(version: 2021_10_13_203455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,29 @@ ActiveRecord::Schema.define(version: 2021_10_13_180248) do
     t.bigint "account_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "watermeter_id", null: false
+    t.bigint "tariff_id", null: false
     t.index ["account_id"], name: "index_computations_on_account_id"
+    t.index ["tariff_id"], name: "index_computations_on_tariff_id"
+    t.index ["watermeter_id"], name: "index_computations_on_watermeter_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.string "name"
+    t.string "doc_num"
+    t.float "summa"
+    t.integer "status"
+    t.integer "payment_type"
+    t.string "description"
+    t.bigint "computation_id", null: false
+    t.bigint "account_id", null: false
+    t.bigint "vodokanal_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.date "doc_date"
+    t.index ["account_id"], name: "index_payments_on_account_id"
+    t.index ["computation_id"], name: "index_payments_on_computation_id"
+    t.index ["vodokanal_id"], name: "index_payments_on_vodokanal_id"
   end
 
   create_table "tariffs", force: :cascade do |t|
@@ -129,6 +151,11 @@ ActiveRecord::Schema.define(version: 2021_10_13_180248) do
   end
 
   add_foreign_key "computations", "accounts"
+  add_foreign_key "computations", "tariffs"
+  add_foreign_key "computations", "watermeters"
+  add_foreign_key "payments", "accounts"
+  add_foreign_key "payments", "computations"
+  add_foreign_key "payments", "vodokanals"
   add_foreign_key "vodokanal_props", "vodokanals"
   add_foreign_key "watermeter_indications", "watermeters"
   add_foreign_key "watermeters", "accounts"

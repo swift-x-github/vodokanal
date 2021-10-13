@@ -64,6 +64,6 @@ class ComputationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def computation_params
-      params.require(:computation).permit(:name, :water_consumption, :price, :summa, :b_period, :e_period, :account_id)
+      params.require(:computation).permit(:name, :water_consumption, :price, :summa, :b_period, :e_period, :account_id, :watermeter_id, :tariff_id)
     end
 end
