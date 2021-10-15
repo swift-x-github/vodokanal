@@ -3,6 +3,7 @@ class Watermeter < ApplicationRecord
   has_many :watermeters, dependent: :destroy
   belongs_to :account
   belongs_to :vodokanal
+  #belongs_to :tariff
 
   # validates :wm_name, presence: true, length: { maximum: 100 }
   # validates :wm_model, presence: true, length: { maximum: 10 }
@@ -20,12 +21,18 @@ class Watermeter < ApplicationRecord
   # validates :wm_poverka_next_date, comparison: { greater_than: :wm_poverka_last_date }
   # validates :wm_name, presence: true
 
-  
-
-
   def self.vodokanal_id
     Watermeter.first.vodokanal_id
   end
 
- 
+  def tariff_name
+    Tariff.find(self.tariffs_id).name
+  end
+
+  def tariff_price
+    Tariff.find(self.tariffs_id).price
+  end
+
+  
+
 end

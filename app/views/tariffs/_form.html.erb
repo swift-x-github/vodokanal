@@ -31,29 +31,35 @@
                   </div>
                 <% end %>
 
-                <div class="col-sm-6">
+                  <div class="col-sm-12">
+                  <%= form.label :vodokanal_id, 'водоканал' %>
+                  <%= form.select :vodokanal_id, options_for_select(Vodokanal.all.map{|v| [v.short_name, v.id]}) %>
+
+                </div>
+
+                <div class="col-sm-12">
                   <%= form.label :name, 'наименование тарифа' %>
                   <%= form.text_area :name %>
                 </div>
 
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                   <%= form.label :price, 'цена тарифа (в грн)' %>
-                  <%= form.text_field :price %>
+                  <%= form.number_field :price , in: 0.0..1000.0, step: 0.01%>
                 </div>
 
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                   <%= form.label :description, 'описание тарифа' %>
                   <%= form.text_field :description %>
                 </div>
 
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                   <%= form.label :date_start, 'дата начала действия тарифа'  %>
                   <%= form.date_select :date_start %>
                 </div>
 
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                   <%= form.label :status, 'статус' %>
-                  <%= form.number_field :status %>
+                  <%= form.select :status, [["Действует","1"],  ["Не действует","0"] ] %>
                 </div>
 
                 <div class="actions">

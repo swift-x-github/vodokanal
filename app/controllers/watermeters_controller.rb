@@ -76,6 +76,6 @@ class WatermetersController < ApplicationController
          :wm_poverka_interval, :wm_poverka_last_date, :wm_poverka_next_date, :wm_control_check_date,\
           :wm_control_check_params, :wm_last_accept_report_date, :wm_last_accept_report_params,\
            :wm_last_sent_report_date, :wm_last_sent_report_params, :wm_last_sent_report_stan,\
-           :wm_name, :wm_water_type, :wm_plomba_num, :wm_plomba_date, :vodokanal_id)
+           :wm_name, :wm_water_type, :wm_plomba_num, :wm_plomba_date, :vodokanal_id, :tariffs_id)
     end
 end

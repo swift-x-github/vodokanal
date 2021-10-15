@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_203455) do
+ActiveRecord::Schema.define(version: 2021_10_14_225214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(version: 2021_10_13_203455) do
     t.integer "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "vodokanal_id"
+    t.index ["vodokanal_id"], name: "index_tariffs_on_vodokanal_id"
   end
 
   create_table "vodokanal_props", force: :cascade do |t|
@@ -146,7 +148,9 @@ ActiveRecord::Schema.define(version: 2021_10_13_203455) do
     t.integer "wm_water_type"
     t.integer "wm_plomba_num"
     t.date "wm_plomba_date"
+    t.bigint "tariffs_id"
     t.index ["account_id"], name: "index_watermeters_on_account_id"
+    t.index ["tariffs_id"], name: "index_watermeters_on_tariffs_id"
     t.index ["vodokanal_id"], name: "index_watermeters_on_vodokanal_id"
   end
 
@@ -156,8 +160,10 @@ ActiveRecord::Schema.define(version: 2021_10_13_203455) do
   add_foreign_key "payments", "accounts"
   add_foreign_key "payments", "computations"
   add_foreign_key "payments", "vodokanals"
+  add_foreign_key "tariffs", "vodokanals"
   add_foreign_key "vodokanal_props", "vodokanals"
   add_foreign_key "watermeter_indications", "watermeters"
   add_foreign_key "watermeters", "accounts"
+  add_foreign_key "watermeters", "tariffs", column: "tariffs_id"
   add_foreign_key "watermeters", "vodokanals"
 end
