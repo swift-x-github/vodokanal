@@ -35,7 +35,13 @@
                       </ul>
                     </div>
                   <% end %>
-                    <h4 class="mb-3">Інформація про прилад</h4>
+                  <h4 class="mb-3">Інформація про прилад</h4>
+
+                  <div class="col-sm-12">
+                    <%= form.label :tariffs_id, 'тариф', class: 'form-label' %>
+                    <%= form.select :tariffs_id, options_for_select(Tariff.where(status: "1").all.map{|t| [t.name, t.id]}) %>
+                  </div>
+                
                   <div class="col-sm-12">
                     <%= form.label :wm_name, 'название водомера', class: 'form-label' %>
                     <%= form.text_field :wm_name, class: 'form-control' %>
@@ -65,7 +71,7 @@
 
                   <div class="col-sm-4">
                     <%= form.label :wm_diameter, 'диаметр, мм', class: 'form-label' %>
-                    <%= form.number_field :wm_diameter, class: 'form-control' %>
+                    <%= form.number_field :wm_diameter, class: 'form-control', in: 0.0..1000.0, step: 1 %>
                   </div>
 
                   <div class="col-sm-12">
@@ -140,7 +146,7 @@
 
                   <div class="col-sm-6">
                     <%= form.label :wm_control_check_params, 'контр.показания',class: 'form-label' %>
-                    <%= form.text_field :wm_control_check_params, class: 'form-control' %>
+                    <%= form.number_field :wm_control_check_params, class: 'form-control', in: 0.0..99999.0, step: 0.001 %>
                   </div>
 
                   <div class="col-sm-6">
@@ -150,7 +156,7 @@
 
                   <div class="col-sm-6">
                     <%= form.label :wm_last_accept_report_params, 'последние показания принятые к расчету',class: 'form-label' %>
-                    <%= form.text_field :wm_last_accept_report_params, class: 'form-control' %>
+                    <%= form.text_field :wm_last_accept_report_params, class: 'form-control', in: 0.0..99999.0, step: 0.001 %>
                   </div>
 
                   <div class="col-sm-12">
@@ -160,7 +166,7 @@
 
                   <div class="col-sm-6">
                     <%= form.label :wm_last_sent_report_params, 'последние переданные показания', class: 'form-label' %>
-                    <%= form.text_field :wm_last_sent_report_params, class: 'form-control' %>
+                    <%= form.text_field :wm_last_sent_report_params, class: 'form-control', in: 0.0..99999.0, step: 0.001 %>
                   </div>
 
                   <div class="col-sm-4">

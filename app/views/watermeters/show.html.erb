@@ -4,6 +4,16 @@
                 <div class="common-form">
                                 
                 <p id="notice"><%= notice %></p>
+                <h2> Информация о тарифе </h2>
+                <p>
+                  <strong>Название тарифа :</strong>
+                  <%= @watermeter.tariff_name %>
+                </p>
+                <p>
+                  <strong>Цена тарифа (грн):</strong>
+                  <%= @watermeter.tariff_price%>
+                </p>
+                <p>
                 <h2> Информация о водомере </h2>
                 <p>
                   <strong>Название водомера :</strong>
